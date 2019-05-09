@@ -158,7 +158,7 @@ Cell [][] cells;
 		//10. Use e.getX() and e.getY() to determine
 		//    which cell is clicked. Then toggle
 		//    the isAlive variable for that cell.
-		
+		getLivingNeighbors(e.getX(),e.getY());
 		
 		
 		
