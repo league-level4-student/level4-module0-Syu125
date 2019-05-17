@@ -52,17 +52,17 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		for (int i = 0; i < cellsPerRow; i++) {
 			for (int j = 0; j < cellsPerRow; j++) {
 				if (ran == 0) {
+					
 					cells[i][j].isAlive = true;
 					cells[i][j].draw(getGraphics());
 					ran = r.nextInt(5);
 				} else {
 					cells[i][j].isAlive = false;
-					// cells[i][j].draw(getGraphics());
 					ran = r.nextInt(5);
 				}
+				System.out.println(ran);
 			}
 		}
-		// repaint();
 
 	}
 
@@ -71,9 +71,11 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		for (int i = 0; i < cellsPerRow; i++) {
 			for (int j = 0; j < cellsPerRow; j++) {
 				cells[i][j].isAlive = false;
+				System.out.println("		" + cells[i][j].isAlive);
+				cells[i][j].draw(getGraphics());
 			}
 		}
-		repaint();
+		//repaint();
 	}
 
 	public void startAnimation() {
@@ -117,11 +119,14 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		// 8. check if each cell should live or die
 		for (int i = 0; i < cellsPerRow; i++) {
 			for (int j = 0; j < cellsPerRow; j++) {
+			//	System.out.println(cells[i][j].isAlive);
 				cells[i][j].liveOrDie(livingNeighbors[i][j]);
+				if(cells[i][j].isAlive = true) {
+				cells[i][j].draw(getGraphics());
+				}
 			}
 		}
 
-		// repaint();
 
 	}
 
@@ -131,15 +136,12 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 	// cell identified by x and y
 	public int getLivingNeighbors(int x, int y) {
 		int count = 0;
-		if (x < 10 | y < 10 | x == 50 | y == 50) {
+		if (x < 20 | y < 20 | x == 50 | y == 50) {
 		}
 		else {
 			for (int i = x - 10; i <= x + 10; i += 10) {
-				System.out.println(i / 10);
-				System.out.println("hi");
 				for (int j = y - 10; j <= y + 10; j += 10) {
-					System.out.println(j / 10);
-					if (cells[i / 10][j / 10].isAlive == true) {
+					if (cells[(i / 10)-1][(j / 10)-1].isAlive == true) {
 						count += 1;
 					}
 				}

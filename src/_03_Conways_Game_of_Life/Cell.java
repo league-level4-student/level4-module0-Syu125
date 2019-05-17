@@ -64,12 +64,12 @@ public class Cell implements Drawable{
 	public void draw(Graphics g) {
 	if(isAlive = true) {
 		g.setColor(Color.BLUE);
+		System.out.println(isAlive);
 		g.fillRect(x, y, cellSize, cellSize);
 	}
-		
-		
-		
-		
-		
+	if(isAlive = false) {
+		g.drawRect(x, y, cellSize, cellSize);
+		System.out.println(Color.BLUE);
+	}
 	}
 }
