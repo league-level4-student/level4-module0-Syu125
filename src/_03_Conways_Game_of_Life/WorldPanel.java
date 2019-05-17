@@ -71,7 +71,7 @@ public class WorldPanel extends JPanel implements MouseListener, ActionListener 
 		for (int i = 0; i < cellsPerRow; i++) {
 			for (int j = 0; j < cellsPerRow; j++) {
 				cells[i][j].isAlive = false;
-				System.out.println("		" + cells[i][j].isAlive);
+				System.out.println("		" +  cells[i][j].isAlive);
 				cells[i][j].draw(getGraphics());
 			}
 		}
