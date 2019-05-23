@@ -22,10 +22,10 @@ public class MazeMaker{
 		maze = new Maze(width, height);
 		
 		//4. select a random cell to start
-		
+		Cell c = randGen.
 		
 		//5. call selectNextPath method with the randomly selected cell
-		
+		selectNextPath(c);
 		
 		return maze;
 	}
