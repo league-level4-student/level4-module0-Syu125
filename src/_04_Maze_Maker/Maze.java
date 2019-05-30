@@ -25,12 +25,16 @@ cells = new Cell[w][h];
 
 	//4. This method iterates through the cells and draws them
 	public void draw(Graphics g) {
-		
+		for(int i = 0; i < cells.length*150; i+=150) {
+			for(int j = 0; j < cells.length*150;j+=150) {
+				g.drawRect(i, j, 150, 150);
+			}
+		}
 	}
 	
 	//4b. This method returns the selected cell.
 	public Cell getCell(int x, int y){
-		return  null;
+		return  cells[x/150][y/150];
 	}
 
 	public int getWidth() {
