@@ -41,18 +41,18 @@ public class MazeMaker {
 			//System.out.println("got");
 		//	System.out.println(neighbors.get(i));
 		}
-		System.out.println("hi " + neighbors.size());
+		//System.out.println("hi " + neighbors.size());
 		// C. if has unvisited neighbors,
 		if (neighbors.size() > 0) {
 			// C1. select one at random.
-			Cell r = neighbors.get(randGen.nextInt(neighbors.size() - 1));
+			Cell r = neighbors.get(randGen.nextInt(neighbors.size()));
 			// C2. push it to the stack
 			uncheckedCells.push(r);
 			// C3. remove the wall between the two cells
 			removeWalls(currentCell, r);
 			// C4. make the new cell the current cell and mark it as visited
 			currentCell = r;
-			System.out.println("Current cell " + currentCell);
+			//System.out.println("Current cell " + currentCell);
 			currentCell.setBeenVisited(true);
 			// C5. call the selectNextPath method with the current cell
 			selectNextPath(currentCell);
@@ -60,7 +60,7 @@ public class MazeMaker {
 			if (!uncheckedCells.isEmpty()) {
 				Cell newC = uncheckedCells.pop();
 				currentCell = newC;
-				System.out.println(currentCell.getX());
+				//System.out.println(currentCell.getX());
 				selectNextPath(newC);
 			}
 		}
@@ -101,31 +101,31 @@ public class MazeMaker {
 
 		if (c.getX() == 0) {
 			if (c.getY() == 0) {
-				System.out.println("0,0");
+				//System.out.println("0,0");
 				for (int i = c.getX(); i < c.getX() + 2; i++) {
 					for (int j = c.getY(); j < c.getY() + 2; j++) {
-						System.out.println(i + " " + j);
+						//System.out.println(i + " " + j);
 						if (maze.cells[i][j].hasBeenVisited() == false) {
 							list.add(maze.cells[i][i]);
 						}
 					}
 				}
 			} else if (c.getY() == 4) {
-				System.out.println("0,4");
+				//System.out.println("0,4");
 				for (int i = c.getX(); i < c.getX() + 2; i++) {
 					for (int j = c.getY() - 1; j < c.getY(); j++) {
-						System.out.println(i + " " + j);
+						//System.out.println(i + " " + j);
 						if (maze.cells[i][j].hasBeenVisited() == false) {
-							System.out.println("true");
+							//System.out.println("true");
 							list.add(maze.cells[i][j]);
 						}
 					}
 				}
 			} else {
-				System.out.println("0,other");
+				//System.out.println("0,other");
 				for (int i = c.getX(); i < c.getX() + 2; i++) {
 					for (int j = c.getY() - 1; j < c.getY() + 2; j++) {
-						System.out.println(i + " " + j);
+						//System.out.println(i + " " + j);
 						if (maze.cells[i][j].hasBeenVisited() == false) {
 							list.add(maze.cells[i][j]);
 						}
@@ -134,30 +134,30 @@ public class MazeMaker {
 			}
 		} else if (c.getX() == 4) {
 			if (c.getY() == 0) {
-				System.out.println("4,0");
+				//System.out.println("4,0");
 				for (int i = c.getX() - 1; i < c.getX(); i++) {
 					for (int j = c.getY(); j < c.getY() + 1; j++) {
-						System.out.println(i + " " + j);
+						//System.out.println(i + " " + j);
 						if (maze.cells[i][j].hasBeenVisited() == false) {
 							list.add(maze.cells[i][i]);
 						}
 					}
 				}
 			} else if (c.getY() == 4) {
-				System.out.println("4,4");
+				//System.out.println("4,4");
 				for (int i = c.getX() - 1; i < c.getX() + 1; i++) {
 					for (int j = c.getY() - 1; j < c.getY() + 1; j++) {
-						System.out.println(i + " " + j);
+						//System.out.println(i + " " + j);
 						if (maze.cells[i][j].hasBeenVisited() == false) {
 							list.add(maze.cells[i][j]);
 						}
 					}
 				}
 			} else {
-				System.out.println("4,other");
+				//System.out.println("4,other");
 				for (int i = c.getX() - 1; i < c.getX() + 1; i++) {
 					for (int j = c.getY() - 1; j < c.getY() + 2; j++) {
-						System.out.println(i + " " + j);
+						//System.out.println(i + " " + j);
 						if (maze.cells[i][j].hasBeenVisited() == false) {
 							list.add(maze.cells[i][j]);
 						}
@@ -166,30 +166,30 @@ public class MazeMaker {
 			}
 		} else {
 			if (c.getY() == 0) {
-				System.out.println("other,0");
+				//System.out.println("other,0");
 				for (int i = c.getX() - 1; i < c.getX() + 2; i++) {
 					for (int j = c.getY(); j < c.getY() + 2; j++) {
-						System.out.println(i + " " + j);
+						//System.out.println(i + " " + j);
 						if (maze.cells[i][j].hasBeenVisited() == false) {
 							list.add(maze.cells[i][i]);
 						}
 					}
 				}
 			} else if (c.getY() == 4) {
-				System.out.println("other,4");
+				//System.out.println("other,4");
 				for (int i = c.getX() - 1; i < c.getX() + 2; i++) {
 					for (int j = c.getY() - 1; j < c.getY() + 1; j++) {
-						System.out.println(i + " " + j);
+						//System.out.println(i + " " + j);
 						if (maze.cells[i][j].hasBeenVisited() == false) {
 							list.add(maze.cells[i][i]);
 						}
 					}
 				}
 			} else {
-				System.out.println("other,other");
+				//System.out.println("other,other");
 				for (int i = c.getX() - 1; i < c.getX() + 2; i++) {
 					for (int j = c.getY() - 1; j < c.getY() + 2; j++) {
-						System.out.println(i + " " + j);
+						//System.out.println(i + " " + j);
 						if (maze.cells[i][j].hasBeenVisited() == false) {
 							list.add(maze.cells[i][j]);
 						}
