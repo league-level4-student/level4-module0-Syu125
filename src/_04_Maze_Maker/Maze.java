@@ -12,7 +12,7 @@ public class Maze {
 		this.width = w;
 		this.height = h;
 
-		//2. Initialize the cells using the width and height varibles
+		//2. Initialize the cells using the width and height variables
 cells = new Cell[w][h];
 		//3. Iterated through each cell and initialize it
 		//   using i and j as the location
@@ -25,9 +25,9 @@ cells = new Cell[w][h];
 
 	//4. This method iterates through the cells and draws them
 	public void draw(Graphics g) {
-		for(int i = 0; i < cells.length*150; i+=150) {
-			for(int j = 0; j < cells.length*150;j+=150) {
-				g.drawRect(i, j, 150, 150);
+		for(int i = 0; i < cells.length; i++) {
+			for(int j = 0; j < cells.length;j++) {
+				cells[i][j].draw(g);
 			}
 		}
 	}
