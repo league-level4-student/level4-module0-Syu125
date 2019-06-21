@@ -48,6 +48,7 @@ public class TheWrongWayCow {
         // head (letter 'c') of the wrong way cow!
         int coor[][];
         
+        field.clone();
         return null;
     }
 }
